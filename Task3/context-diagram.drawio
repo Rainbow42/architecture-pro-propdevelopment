@@ -1,0 +1,134 @@
+<mxfile host="65bd71144e">
+    <diagram name="C4 Context — Умный дом" id="c4-context">
+        <mxGraphModel dx="361" dy="355" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1200" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="C4 Context — «Умный дом» (PropDevelopment)" style="text;html=1;align=left;fontSize=18;fontStyle=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="20" width="900" height="30" as="geometry"/>
+                </mxCell>
+                <object placeholders="1" c4Name="Собственник" c4Type="Person" c4Description="Открывает дверь/шлагбаум из приложения, смотрит историю, согласия" label="&lt;font style=&quot;font-size: 15px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="p-owner">
+                    <mxCell style="html=1;fontSize=11;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;align=center;metaEdit=1;resizable=0;" parent="1" vertex="1">
+                        <mxGeometry x="40" y="120" width="180" height="160" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Name="Гость / курьер" c4Type="Person" c4Description="Звонит в домофон или проходит по лицу" label="&lt;font style=&quot;font-size: 15px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="p-guest">
+                    <mxCell style="html=1;fontSize=11;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;align=center;metaEdit=1;resizable=0;" parent="1" vertex="1">
+                        <mxGeometry x="1680" y="20" width="180" height="150" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Name="Сотрудник УК" c4Type="Person" c4Description="Ведёт списки жителей в системах УК" label="&lt;font style=&quot;font-size: 15px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="p-uk">
+                    <mxCell style="html=1;fontSize=11;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;align=center;metaEdit=1;resizable=0;" parent="1" vertex="1">
+                        <mxGeometry x="40" y="580" width="180" height="150" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Name="PropDevelopment" c4Type="Software System" c4Description="Мобильное приложение, ЖКУ, умный дом. Внутри — шлюз, права, согласия (см. контейнеры)." label="&lt;font style=&quot;font-size: 16px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="sys-pd">
+                    <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1061B0;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#0D5091;metaEdit=1;resizable=0;" parent="1" vertex="1">
+                        <mxGeometry x="360" y="200" width="260" height="180" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Name="Платформа партнёра «Умный дом»" c4Type="Software System" c4Description="Домофоны, шлагбаумы, биометрия, события проходов" label="&lt;font style=&quot;font-size: 15px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="sys-partner">
+                    <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;" parent="1" vertex="1">
+                        <mxGeometry x="780" y="100" width="260" height="140" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Name="Системы УК" c4Type="Software System" c4Description="Дома, жители, начисления ЖКУ" label="&lt;font style=&quot;font-size: 15px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="sys-uk">
+                    <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;" parent="1" vertex="1">
+                        <mxGeometry x="780" y="320" width="260" height="120" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Name="Push-уведомления" c4Type="Software System" c4Description="APNs / FCM — вызов на телефон" label="&lt;font style=&quot;font-size: 15px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="sys-push">
+                    <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;" parent="1" vertex="1">
+                        <mxGeometry x="780" y="520" width="260" height="110" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Name="Интеллектуальный домофон" c4Type="Software System" c4Description="Видеовызов, открытие по звонку и по лицу" label="&lt;font style=&quot;font-size: 15px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="sys-intercom">
+                    <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;" parent="1" vertex="1">
+                        <mxGeometry x="1180" y="60" width="240" height="110" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Name="Интеллектуальный шлагбаум" c4Type="Software System" c4Description="Открытие по номеру авто и из приложения" label="&lt;font style=&quot;font-size: 15px&quot;&gt;&lt;b&gt;%c4Name%&lt;/b&gt;&lt;/font&gt;&lt;div&gt;[%c4Type%]&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#cccccc&quot;&gt;%c4Description%&lt;/font&gt;&lt;/div&gt;" id="sys-barrier">
+                    <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;fontColor=#ffffff;align=center;arcSize=10;strokeColor=#736782;metaEdit=1;resizable=0;" parent="1" vertex="1">
+                        <mxGeometry x="1180" y="200" width="240" height="110" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Type="Relationship" c4Description="Пользуется приложением" c4Technology="HTTPS, OIDC" label="&lt;b&gt;%c4Description%&lt;/b&gt;&lt;div&gt;[%c4Technology%]&lt;/div&gt;" id="r1">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeColor=#828282;endFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.35;" parent="1" source="p-owner" target="sys-pd" edge="1">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Type="Relationship" c4Description="Команды, списки прав" c4Technology="HTTPS, mTLS, OAuth 2.0" label="&lt;b&gt;%c4Description%&lt;/b&gt;&lt;div&gt;[%c4Technology%]&lt;/div&gt;" id="r2">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeColor=#828282;endFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.35;entryX=0;entryY=0.5;" parent="1" source="sys-pd" target="sys-partner" edge="1">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Type="Relationship" c4Description="События: вызов, проход" c4Technology="Webhook, mTLS" label="&lt;b&gt;%c4Description%&lt;/b&gt;&lt;div&gt;[%c4Technology%]&lt;/div&gt;" id="r3">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeColor=#828282;endFill=1;dashed=1;dashPattern=8 8;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0;exitY=0.75;entryX=1;entryY=0.25;" parent="1" source="sys-partner" target="sys-pd" edge="1">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="720" y="205"/>
+                                <mxPoint x="720" y="245"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Type="Relationship" c4Description="Управляет" c4Technology="" label="&lt;b&gt;%c4Description%&lt;/b&gt;" id="r4">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeColor=#828282;endFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.35;entryX=0;entryY=0.5;" parent="1" source="sys-partner" target="sys-intercom" edge="1">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Type="Relationship" c4Description="Управляет" c4Technology="" label="&lt;b&gt;%c4Description%&lt;/b&gt;" id="r5">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeColor=#828282;endFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.75;entryX=0;entryY=0.5;" parent="1" source="sys-partner" target="sys-barrier" edge="1">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Type="Relationship" c4Description="Данные ЖКУ, жители" c4Technology="HTTPS, mTLS" label="&lt;b&gt;%c4Description%&lt;/b&gt;&lt;div&gt;[%c4Technology%]&lt;/div&gt;" id="r6">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeColor=#828282;endFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.65;entryX=0;entryY=0.5;" parent="1" source="sys-pd" target="sys-uk" edge="1">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Type="Relationship" c4Description="Уведомление о вызове" c4Technology="HTTPS" label="&lt;b&gt;%c4Description%&lt;/b&gt;&lt;div&gt;[%c4Technology%]&lt;/div&gt;" id="r7">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeColor=#828282;endFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" parent="1" source="sys-pd" target="sys-push" edge="1">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="490" y="575"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Type="Relationship" c4Description="Показ вызова" c4Technology="" label="&lt;b&gt;%c4Description%&lt;/b&gt;" id="r8">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeColor=#828282;endFill=1;dashed=1;dashPattern=8 8;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0;exitY=0.5;entryX=0.5;entryY=1;" parent="1" source="sys-push" target="p-owner" edge="1">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="300" y="575"/>
+                                <mxPoint x="300" y="100"/>
+                                <mxPoint x="130" y="100"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Type="Relationship" c4Description="Звонит / проходит по лицу" c4Technology="" label="&lt;b&gt;%c4Description%&lt;/b&gt;" id="r9">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeColor=#828282;endFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=-0.001;exitY=0.656;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="p-guest" target="sys-intercom" edge="1">
+                        <mxGeometry x="-0.0002" relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="1550" y="120"/>
+                                <mxPoint x="1420" y="120"/>
+                            </Array>
+                            <mxPoint as="offset"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object placeholders="1" c4Type="Relationship" c4Description="Ведёт списки жителей" c4Technology="" label="&lt;b&gt;%c4Description%&lt;/b&gt;" id="r10">
+                    <mxCell style="endArrow=blockThin;html=1;fontSize=10;fontColor=#404040;strokeColor=#828282;endFill=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.85;" parent="1" source="p-uk" target="sys-uk" edge="1">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="300" y="655"/>
+                                <mxPoint x="300" y="422"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
