@@ -1,7 +1,3 @@
-# Пара административных сервисов: admin-front-end и admin-back-end-api.
-# Трафик разрешён в обе стороны и только между ними.
-# Обычный front-end до административного API не доходит — это и есть изоляция.
----
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:

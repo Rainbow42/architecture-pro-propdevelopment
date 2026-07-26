@@ -1,6 +1,3 @@
-# Пара обычных сервисов: front-end и back-end-api.
-# Трафик разрешён в обе стороны и только между ними.
----
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:

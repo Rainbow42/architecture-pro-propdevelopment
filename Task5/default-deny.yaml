@@ -1,12 +1,9 @@
-# Базовый запрет: по умолчанию в пространстве имён никто ни к кому не ходит.
-# Дальше отдельными политиками открываем только нужные пары сервисов.
-# Без этой политики Kubernetes разрешает любой трафик внутри пространства имён.
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: default-deny-ingress
   namespace: netpol-demo
 spec:
-  podSelector: {}          # пустой селектор — политика действует на все поды
+  podSelector: {}
   policyTypes:
     - Ingress
