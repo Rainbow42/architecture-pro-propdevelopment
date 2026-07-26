@@ -1,0 +1,43 @@
+# Пара административных сервисов: admin-front-end и admin-back-end-api.
+# Трафик разрешён в обе стороны и только между ними.
+# Обычный front-end до административного API не доходит — это и есть изоляция.
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: admin-back-end-api-allow-admin-front-end
+  namespace: netpol-demo
+spec:
+  podSelector:
+    matchLabels:
+      role: admin-back-end-api
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              role: admin-front-end
+      ports:
+        - protocol: TCP
+          port: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: admin-front-end-allow-admin-back-end-api
+  namespace: netpol-demo
+spec:
+  podSelector:
+    matchLabels:
+      role: admin-front-end
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              role: admin-back-end-api
+      ports:
+        - protocol: TCP
+          port: 80
