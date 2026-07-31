@@ -1,0 +1,62 @@
+apiVersion: templates.gatekeeper.sh/v1
+kind: ConstraintTemplate
+metadata:
+  name: k8spsprunasnonroot
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sPSPRunAsNonRoot
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8spsprunasnonroot
+
+        # runAsNonRoot обязателен на уровне пода или каждого контейнера
+        violation[{"msg": msg, "details": {}}] {
+          not pod_run_as_non_root
+          c := input_containers[_]
+          not container_run_as_non_root(c)
+          msg := sprintf("контейнер %v: требуется runAsNonRoot=true", [c.name])
+        }
+
+        # readOnlyRootFilesystem обязателен для каждого контейнера
+        violation[{"msg": msg, "details": {}}] {
+          c := input_containers[_]
+          not container_readonly_root(c)
+          msg := sprintf("контейнер %v: требуется readOnlyRootFilesystem=true", [c.name])
+        }
+
+        # UID 0 запрещён явно
+        violation[{"msg": msg, "details": {}}] {
+          c := input_containers[_]
+          c.securityContext.runAsUser == 0
+          msg := sprintf("контейнер %v: запуск от UID 0 запрещён", [c.name])
+        }
+
+        violation[{"msg": msg, "details": {}}] {
+          input.review.object.spec.securityContext.runAsUser == 0
+          msg := "под: запуск от UID 0 запрещён"
+        }
+
+        pod_run_as_non_root {
+          input.review.object.spec.securityContext.runAsNonRoot == true
+        }
+
+        container_run_as_non_root(c) {
+          c.securityContext.runAsNonRoot == true
+        }
+
+        container_readonly_root(c) {
+          c.securityContext.readOnlyRootFilesystem == true
+        }
+
+        input_containers[c] {
+          c := input.review.object.spec.containers[_]
+        }
+        input_containers[c] {
+          c := input.review.object.spec.initContainers[_]
+        }
+        input_containers[c] {
+          c := input.review.object.spec.ephemeralContainers[_]
+        }
