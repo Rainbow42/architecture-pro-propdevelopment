@@ -1,11 +1,9 @@
-# Задание 4. Ролевая модель доступа к кластеру Kubernetes
-
-Пространства имён по доменам компании: `sales`, `tenant`, `finance`, `data`, `platform`.
-
 | Роль | Права роли | Группы пользователей |
 | --- | --- | --- |
-| `platform-admin` (ClusterRole, весь кластер) | Полный доступ к кластеру: узлы, пространства имён, секреты, роли и привязки. Может выдавать права другим. Единственная роль с `pods/exec` и `pods/portforward`. | `platform:admins` — платформенная команда |
-| `security-auditor` (ClusterRole, весь кластер) | Только чтение любых ресурсов, включая секреты, роли, привязки и журналы подов. Изменять ничего не может. | `security:auditors` — специалист по информационной безопасности |
-| `cluster-operator` (ClusterRole, весь кластер) | Настройка кластера: пространства имён, узлы, сетевые политики, квоты, ingress, классы хранилищ. Чтение и изменение секретов запрещены. | `platform:operators` — DevOps-инженеры |
-| `namespace-viewer` (Role в каждом пространстве имён: `sales`, `tenant`, `finance`, `data`) | Только просмотр в своём пространстве имён: поды, сервисы, деплойменты, конфигурации, журналы. Секреты не видит. | `sales:viewers`, `tenant:viewers`, `finance:viewers`, `data:viewers` — аналитики, менеджеры операционной команды |
-| `namespace-developer` (Role в своём пространстве имён) | Выкладка и перезапуск приложений в своём пространстве имён: деплойменты, поды, конфигурации, сервисы; чтение журналов. Секреты, роли и привязки не трогает. | `sales:developers`, `tenant:developers`, `finance:developers`, `data:developers` — разработчики и инженеры по эксплуатации продуктовой команды |
+| `platform-admin` (ClusterRole) | Полный доступ ко всему кластеру, в том числе к секретам, ролям и привязкам. Может выдавать права. Только у этой роли есть `pods/exec` и `pods/portforward`. | `platform:admins` — платформенная команда |
+| `security-auditor` (ClusterRole) | Только чтение любых ресурсов, включая секреты и логи. Менять ничего нельзя. | `security:auditors` — ИБ |
+| `cluster-operator` (ClusterRole) | Namespace, узлы, NetworkPolicy, квоты, Ingress, StorageClass. Секреты не читает и не меняет. | `platform:operators` — DevOps |
+| `namespace-viewer` (Role в `sales`, `tenant`, `finance`, `data`) | Смотрит поды, сервисы, деплои, конфиги и логи в своём namespace. Секреты не видит. | `sales:viewers`, `tenant:viewers`, `finance:viewers`, `data:viewers` — аналитики, менеджеры |
+| `namespace-developer` (Role в своём namespace) | Деплои, поды, конфиги, сервисы; читает логи. Секреты, роли и привязки не трогает. | `sales:developers`, `tenant:developers`, `finance:developers`, `data:developers` — разработчики и эксплуатация |
+
+Namespaces: `sales`, `tenant`, `finance`, `data`, `platform`.
