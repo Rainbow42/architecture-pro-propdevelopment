@@ -1,0 +1,296 @@
+{
+  "source": "audit.log",
+  "totalEvents": 4110,
+  "brokenLines": 0,
+  "suspiciousEvents": 7,
+  "findings": [
+    {
+      "category": "secrets_access",
+      "title": "Доступ к секретам",
+      "severity": "критический",
+      "why": "В секретах лежат пароли к базам и токены. Читать их вправе только платформенная команда и специалист по безопасности",
+      "count": 4,
+      "events": [
+        {
+          "time": "2026-07-26T20:53:26.337864Z",
+          "auditID": "ade2fc7c-6633-432f-8940-fee6a48fce65",
+          "user": "minikube-user",
+          "impersonatedUser": null,
+          "sourceIPs": [
+            "192.168.127.1"
+          ],
+          "userAgent": "kubectl/v1.36.0 (darwin/arm64) kubernetes/ecf6dec",
+          "verb": "list",
+          "resource": "secrets",
+          "subresource": null,
+          "namespace": "kube-system",
+          "name": null,
+          "requestURI": "/api/v1/namespaces/kube-system/secrets?limit=500",
+          "decision": "",
+          "responseCode": null
+        },
+        {
+          "time": "2026-07-26T20:53:26.337864Z",
+          "auditID": "ade2fc7c-6633-432f-8940-fee6a48fce65",
+          "user": "minikube-user",
+          "impersonatedUser": null,
+          "sourceIPs": [
+            "192.168.127.1"
+          ],
+          "userAgent": "kubectl/v1.36.0 (darwin/arm64) kubernetes/ecf6dec",
+          "verb": "list",
+          "resource": "secrets",
+          "subresource": null,
+          "namespace": "kube-system",
+          "name": null,
+          "requestURI": "/api/v1/namespaces/kube-system/secrets?limit=500",
+          "decision": "allow",
+          "responseCode": 200
+        },
+        {
+          "time": "2026-07-26T20:53:26.395145Z",
+          "auditID": "55a6560a-10ee-4f7f-9980-8e945090c471",
+          "user": "minikube-user",
+          "impersonatedUser": null,
+          "sourceIPs": [
+            "192.168.127.1"
+          ],
+          "userAgent": "kubectl/v1.36.0 (darwin/arm64) kubernetes/ecf6dec",
+          "verb": "list",
+          "resource": "secrets",
+          "subresource": null,
+          "namespace": "kube-system",
+          "name": null,
+          "requestURI": "/api/v1/namespaces/kube-system/secrets?limit=500",
+          "decision": "",
+          "responseCode": null
+        },
+        {
+          "time": "2026-07-26T20:53:26.395145Z",
+          "auditID": "55a6560a-10ee-4f7f-9980-8e945090c471",
+          "user": "minikube-user",
+          "impersonatedUser": "system:serviceaccount:secure-ops:monitoring",
+          "sourceIPs": [
+            "192.168.127.1"
+          ],
+          "userAgent": "kubectl/v1.36.0 (darwin/arm64) kubernetes/ecf6dec",
+          "verb": "list",
+          "resource": "secrets",
+          "subresource": null,
+          "namespace": "kube-system",
+          "name": null,
+          "requestURI": "/api/v1/namespaces/kube-system/secrets?limit=500",
+          "decision": "forbid",
+          "responseCode": 403
+        }
+      ]
+    },
+    {
+      "category": "privileged_pod",
+      "title": "Создание привилегированного пода",
+      "severity": "критический",
+      "why": "Привилегированный контейнер выходит за границы пода и получает доступ к узлу",
+      "count": 1,
+      "events": [
+        {
+          "time": "2026-07-26T20:53:26.505706Z",
+          "auditID": "8e1fa57b-f873-42a3-9c26-1f90c63de285",
+          "user": "minikube-user",
+          "impersonatedUser": null,
+          "sourceIPs": [
+            "192.168.127.1"
+          ],
+          "userAgent": "kubectl/v1.36.0 (darwin/arm64) kubernetes/ecf6dec",
+          "verb": "create",
+          "resource": "pods",
+          "subresource": null,
+          "namespace": "secure-ops",
+          "name": "privileged-pod",
+          "requestURI": "/api/v1/namespaces/secure-ops/pods?fieldManager=kubectl-client-side-apply&fieldValidation=Strict",
+          "decision": "allow",
+          "responseCode": 201
+        }
+      ]
+    },
+    {
+      "category": "pod_exec",
+      "title": "Вход в чужой под",
+      "severity": "критический",
+      "why": "Внутри контейнера видны данные приложения и переменные окружения в обход журналирования самого приложения",
+      "count": 3,
+      "events": [
+        {
+          "time": "2026-07-26T20:53:26.615485Z",
+          "auditID": "d6df9e58-4323-4f04-8d72-66db4fec9c84",
+          "user": "minikube-user",
+          "impersonatedUser": null,
+          "sourceIPs": [
+            "192.168.127.1"
+          ],
+          "userAgent": "kubectl/v1.36.0 (darwin/arm64) kubernetes/ecf6dec",
+          "verb": "get",
+          "resource": "pods",
+          "subresource": "exec",
+          "namespace": "kube-system",
+          "name": "coredns-7d764666f9-gffc2",
+          "requestURI": "/api/v1/namespaces/kube-system/pods/coredns-7d764666f9-gffc2/exec?command=cat&command=%2Fetc%2Fresolv.conf&container=coredns&stderr=true&stdout=true",
+          "decision": "",
+          "responseCode": null
+        },
+        {
+          "time": "2026-07-26T20:53:26.615485Z",
+          "auditID": "d6df9e58-4323-4f04-8d72-66db4fec9c84",
+          "user": "minikube-user",
+          "impersonatedUser": null,
+          "sourceIPs": [
+            "192.168.127.1"
+          ],
+          "userAgent": "kubectl/v1.36.0 (darwin/arm64) kubernetes/ecf6dec",
+          "verb": "get",
+          "resource": "pods",
+          "subresource": "exec",
+          "namespace": "kube-system",
+          "name": "coredns-7d764666f9-gffc2",
+          "requestURI": "/api/v1/namespaces/kube-system/pods/coredns-7d764666f9-gffc2/exec?command=cat&command=%2Fetc%2Fresolv.conf&container=coredns&stderr=true&stdout=true",
+          "decision": "allow",
+          "responseCode": 101
+        },
+        {
+          "time": "2026-07-26T20:53:26.615485Z",
+          "auditID": "d6df9e58-4323-4f04-8d72-66db4fec9c84",
+          "user": "minikube-user",
+          "impersonatedUser": null,
+          "sourceIPs": [
+            "192.168.127.1"
+          ],
+          "userAgent": "kubectl/v1.36.0 (darwin/arm64) kubernetes/ecf6dec",
+          "verb": "get",
+          "resource": "pods",
+          "subresource": "exec",
+          "namespace": "kube-system",
+          "name": "coredns-7d764666f9-gffc2",
+          "requestURI": "/api/v1/namespaces/kube-system/pods/coredns-7d764666f9-gffc2/exec?command=cat&command=%2Fetc%2Fresolv.conf&container=coredns&stderr=true&stdout=true",
+          "decision": "allow",
+          "responseCode": 101
+        }
+      ]
+    },
+    {
+      "category": "rbac_escalation",
+      "title": "Расширение прав через RBAC",
+      "severity": "критический",
+      "why": "Выдача роли уровня администратора кластера снимает все остальные ограничения",
+      "count": 1,
+      "events": [
+        {
+          "time": "2026-07-26T20:53:26.746702Z",
+          "auditID": "54c28701-2d9a-41de-9ce9-b03b6a9bfecd",
+          "user": "minikube-user",
+          "impersonatedUser": null,
+          "sourceIPs": [
+            "192.168.127.1"
+          ],
+          "userAgent": "kubectl/v1.36.0 (darwin/arm64) kubernetes/ecf6dec",
+          "verb": "create",
+          "resource": "rolebindings",
+          "subresource": null,
+          "namespace": "secure-ops",
+          "name": "escalate-binding",
+          "requestURI": "/apis/rbac.authorization.k8s.io/v1/namespaces/secure-ops/rolebindings?fieldManager=kubectl-client-side-apply&fieldValidation=Strict",
+          "decision": "allow",
+          "responseCode": 201
+        }
+      ]
+    },
+    {
+      "category": "impersonation",
+      "title": "Действие от чужого имени",
+      "severity": "значительный",
+      "why": "Работа под чужой учётной записью маскирует настоящего исполнителя",
+      "count": 3,
+      "events": [
+        {
+          "time": "2026-07-26T20:53:26.284109Z",
+          "auditID": "bfd247f1-ec3f-4932-b964-4566440c4ec6",
+          "user": "minikube-user",
+          "impersonatedUser": "system:serviceaccount:secure-ops:monitoring",
+          "sourceIPs": [
+            "192.168.127.1"
+          ],
+          "userAgent": "kubectl/v1.36.0 (darwin/arm64) kubernetes/ecf6dec",
+          "verb": "get",
+          "resource": null,
+          "subresource": null,
+          "namespace": null,
+          "name": null,
+          "requestURI": "/api/v1",
+          "decision": "allow",
+          "responseCode": 200
+        },
+        {
+          "time": "2026-07-26T20:53:26.286047Z",
+          "auditID": "1b09ee07-2323-44f8-b66e-dabc23ea84d8",
+          "user": "minikube-user",
+          "impersonatedUser": "system:serviceaccount:secure-ops:monitoring",
+          "sourceIPs": [
+            "192.168.127.1"
+          ],
+          "userAgent": "kubectl/v1.36.0 (darwin/arm64) kubernetes/ecf6dec",
+          "verb": "create",
+          "resource": "selfsubjectaccessreviews",
+          "subresource": null,
+          "namespace": null,
+          "name": null,
+          "requestURI": "/apis/authorization.k8s.io/v1/selfsubjectaccessreviews",
+          "decision": "allow",
+          "responseCode": 201
+        },
+        {
+          "time": "2026-07-26T20:53:26.395145Z",
+          "auditID": "55a6560a-10ee-4f7f-9980-8e945090c471",
+          "user": "minikube-user",
+          "impersonatedUser": "system:serviceaccount:secure-ops:monitoring",
+          "sourceIPs": [
+            "192.168.127.1"
+          ],
+          "userAgent": "kubectl/v1.36.0 (darwin/arm64) kubernetes/ecf6dec",
+          "verb": "list",
+          "resource": "secrets",
+          "subresource": null,
+          "namespace": "kube-system",
+          "name": null,
+          "requestURI": "/api/v1/namespaces/kube-system/secrets?limit=500",
+          "decision": "forbid",
+          "responseCode": 403
+        }
+      ]
+    },
+    {
+      "category": "access_denied",
+      "title": "Отказ в доступе",
+      "severity": "значительный",
+      "why": "Серия отказов обычно означает разведку: человек проверяет, куда его пустят",
+      "count": 1,
+      "events": [
+        {
+          "time": "2026-07-26T20:53:26.395145Z",
+          "auditID": "55a6560a-10ee-4f7f-9980-8e945090c471",
+          "user": "minikube-user",
+          "impersonatedUser": "system:serviceaccount:secure-ops:monitoring",
+          "sourceIPs": [
+            "192.168.127.1"
+          ],
+          "userAgent": "kubectl/v1.36.0 (darwin/arm64) kubernetes/ecf6dec",
+          "verb": "list",
+          "resource": "secrets",
+          "subresource": null,
+          "namespace": "kube-system",
+          "name": null,
+          "requestURI": "/api/v1/namespaces/kube-system/secrets?limit=500",
+          "decision": "forbid",
+          "responseCode": 403
+        }
+      ]
+    }
+  ]
+}
